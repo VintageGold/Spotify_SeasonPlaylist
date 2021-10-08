@@ -72,7 +72,7 @@ def get_spotify(token, kind, elements=None, limit=50, offset=50, user=False):
         print("Total Songs:", response['total'])
         print("Max Limit:", response['limit'])
 
-        times = ((response['total'] - response['limit'])/response['limit']) - 1
+        times = ((response['total'] - response['limit'])/response['limit'])
 
         print(times)
 
@@ -81,7 +81,7 @@ def get_spotify(token, kind, elements=None, limit=50, offset=50, user=False):
         for i in trange(math.floor(times)):
 
             response = requests.get(url=response['next'], headers={
-                                    'Authorization': 'Bearer ' + token}).json()
+                'Authorization': 'Bearer ' + token}).json()
 
             if response['next']:
 
